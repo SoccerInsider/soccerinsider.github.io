@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ekstraklasa ExpectedGoals</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="sorttable.js"></script>
+  <script>
+  jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});</script>
+</head>
+
+
+<style>
+    th {
+        cursor: pointer;
+    }
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h3 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h3{
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+    background-color: white;
+    font-size: 18px;
+}
+.bs-callout-success h3 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+    font-size: 18px;
+}
+.bs-callout-danger h3 {
+    color: #d9534f;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h3 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h3 {
+    color: #5bc0de;
+}
+
+
+body {
+background-color:#fbfbfb;
+}
+.full-circle {
+opacity: 0.7;
+ position: absolute;
+    background-color:red;
+    height:30px;
+    width:30px;
+    -webkit-border-radius:75px;
+    -moz-border-radius:75px;
+}
+
+.box {
+opacity: 0.7;
+background-color: yellow;
+    height:130px;
+    width:130px;
+position: absolute;
+ display: none;
+top: 18px;left: 32px;
+
+}
+
+.full-circle:hover { 
+    background-color: yellow;
+    cursor:pointer;
+}
+
+.circle-border {
+    background-color:#c06;
+    border: 3px solid #000;
+    height:150px;
+    width:150px;
+    -webkit-border-radius:75px;
+    -moz-border-radius:75px;
+}
+
+.transparent-circle {
+    background-color: rgba(204, 0, 102, 40);
+    border: 3px solid #000;
+    height:150px;
+    width:150px;
+    -webkit-border-radius:75px;
+    -moz-border-radius:75px;
+}
+
+.half-circle {
+    background-color:#c06;
+    height:150px;
+    width: 75px;
+    -moz-border-radius: 150px 0 0 150px;
+    border-radius: 150px 0 0 150px;
+}
+
+.quarter-circle {
+    background-color:#c06;
+    height:150px;
+    width: 150px;
+    -moz-border-radius: 150px 0 0 0;
+    border-radius: 150px 0 0 0;
+}
+#row{
+border:0;
+margin: auto;
+    width: 80%;
+    padding: 10px;
+background-color: #fbfbfb;
+border-color: #fbfbfb;
+}
+.navbar-default {
+border:0;
+background-color: #fbfbfb;
+border-color: #fbfbfb;
+border-bottom-color:black;
+}
+#wpis {
+border:1px;
+padding:50px 25px 25px 25px;
+}
+
+.shot {
+opacity: 0.7;
+ position: absolute;
+    background-color:red;
+    -webkit-border-radius:75px;
+    -moz-border-radius:75px;
+}
+
+.goal {
+opacity: 0.7;
+ position: absolute;
+    background-color:blue;
+    -webkit-border-radius:75px;
+    -moz-border-radius:75px;
+}
+.clickable-row {
+    cursor: pointer;
+}
+</style>
+<style>
+        table.sortable thead {
+            background-color:#eee;
+            color:#666666;
+            font-weight: bold;
+            cursor: default;
+        }
+        table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+            content: " \25B4\25BE" 
+        }
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th {
+          text-align: center;
+          padding: 8px;
+        font-family: "Arial", Gadget, sans-serif;
+        }
+        
+        
+        td {
+        font-family: "Arial", Gadget, sans-serif;
+        font-weight: 800;
+          text-align: center;
+          padding: 8px;
+        
+            color: #3498db;
+        font-size: 18px;
+        }
+        
+        tr td:first-child{
+            /* styles */
+            color:black !important;
+            font-family: "Arial", Gadget, sans-serif;
+            font-weight: 800;
+        }
+        
+        tr:nth-child(even) td:nth-child(2){background-color: #f2f2f2;color: #0c69a7;}
+        tr:nth-child(even) {background-color: #f2f2f2}
+
+        th {
+          background-color: #4CAF50;
+          color: white;
+        }
+        </style>
+
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v3.1&appId=602628593213678&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="row">
+        <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                    <a class="navbar-left" href="index.html"><img src="logo.png"></a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right" style="margin-top:10px">
+                        
+                        <li ><a href="index.html">Strona główna</a></li>
+                    </ul>
+                </div>
+            </nav>
+<div id = "wpis">
+
+<article>
+    <div class="bs-callout bs-callout-warning" id="callout-btn-group-tooltips"> 
+        <h3>Expected Points(xG) - wyjaśnienie </h3> 
+
+            <h4>
+                    <p>
+                Ciągły charakter <code>ExpectedGoals</code> może być problematyczny w interpretacji.
+                 Innym zastosowaniem metryki jest oszacowanie "sprawiedliwego" podziału punktów w danym meczu.
+                 Zatem podział punktów zdobytych w danym mecz to już nie <b>0/1/3</b>, w myśl <code>ExpectedPoints</code>
+                 punkty stają się wartością ciągłą.
+            </p>
+                 <p>
+                     Dorobek <code>ExpectedGoals</code> szacowany jest na podstawie symulacji wszystkich strzałów oddanych
+                     przez drużyny w meczu. <code>xG</code> przypisuje każdemu strzałowi prawdopodobieństwo zdobycia gola.
+                     Możemy zatem do każdego wyniku przypisać prawdopodobieństwo, wynikające właśnie z oddanych strzałów.
+                     Symuluję każdy mecz 1000 razy, następnie obliczam jakie jest prawd. każdego wyniku i na koniec wyprowadzam
+                     szansę każdej z drużyn na zwycięstwo oraz prawd. remisu. 
+                     <code>ExpectedPoints</code> to prawdopodobieństwo wygranej danej drużyny przemnożone przez 3 punkty + prawdopodobieństwo remisu przemnożone przez 1 punkt.
+                     
+                 </p>
+                 <p>
+
+                    Wliczam tylko tzw. <code>non-penalty ExpectedGoals</code>, czyli wszystkie strzały oprócz rzutów karnych.
+                 </p>
+            </h4>
+         </div>
+
+         <table class="sortable">
+
+                <thead><tr>
+                
+                <th>Miejsce</th>
+                <th>Klub</th>
+                <th>ExpectedPoints</th>
+                <th>Punkty</th>
+                <th>xG zdobyte</th>
+                <th>xG stracone</th>
+                <th>Gole zdobyte</th>
+                <th>Gole stracone</th>
+                </tr></thead>
+                <tbody>
+                
+                  <tr> <td> 1 <span class="label label-success">+6</span></td> <td> Legia Warszawa </td> <td> 5.440 </td> <td> 4 </td> <td> 4.216 </td> <td> 2.563 </td> <td> 3 </td> <td> 3 </td></tr>
+                  <tr> <td> 2 <span class="label label-success">+3</span></td> <td> Jagiellonia Białystok</td> <td> 5.255 </td> <td> 4 </td> <td> 5.736 </td> <td> 4.237 </td> <td> 5 </td> <td> 3 </td></tr>
+                  <tr> <td> 3 <span class="label label-success">+4</span></td> <td> Korona Kielce </td> <td> 4.809 </td> <td> 4 </td> <td> 4.104 </td> <td> 3.193 </td> <td> 2 </td> <td> 3 </td></tr>
+                  <tr> <td> 4 <span class="label label-danger">-3</span></td> <td>  Lech Poznań </td> <td> 4.693 </td> <td> 7 </td> <td> 6.119 </td> <td> 5.303 </td> <td> 6 </td> <td> 2 </td></tr>
+                  <tr> <td> 5 <span class="label label-success">+1</span></td> <td> Cracovia </td> <td> 4.633 </td> <td> 4 </td> <td> 5.083 </td> <td> 4.566 </td> <td> 5 </td> <td> 3 </td></tr>
+                  <tr> <td> 6 <span class="label label-success">+8</span></td> <td> Piast Gliwice </td> <td> 4.527 </td> <td> 2 </td> <td> 4.860 </td> <td> 4.394 </td> <td> 2 </td> <td> 2 </td></tr>
+                  <tr> <td> 7 <span class="label label-success">+4</span></td> <td> Wisła Kraków </td> <td> 4.431 </td> <td> 4 </td> <td> 3.811 </td> <td> 3.414 </td> <td> 1 </td> <td> 1 </td></tr>
+                  <tr> <td> 8 <span class="label label-danger">-1</span></td> <td> ŁKS Łódź </td> <td> 4.256 </td> <td> 4 </td> <td> 4.782 </td> <td> 4.831 </td> <td> 2 </td> <td> 3 </td></tr>
+                  <tr> <td> 9 <span class="label label-success">+1</span></td> <td> Górnik Zabrze </td> <td> 4.079 </td> <td> 4 </td> <td> 3.926 </td> <td> 3.984 </td> <td> 2 </td> <td> 1 </td></tr>
+                  <tr> <td> 10 <span class="label label-danger">-7</span></td> <td> Śląsk Wrocław </td> <td> 3.816 </td> <td> 7 </td> <td> 3.868 </td> <td> 4.159 </td> <td> 2 </td> <td> 1 </td></tr>
+                  <tr> <td> 11 <span class="label label-success">+5</span></td> <td> Arka Gdynia </td> <td> 3.606 </td> <td> 1 </td> <td> 4.074 </td> <td> 4.722 </td> <td> 1 </td> <td> 6 </td></tr>
+                  <tr> <td> 12 <span class="label label-danger">-8</span></td> <td> Lechia Gdańsk </td> <td> 3.577 </td> <td> 5 </td> <td> 2.451 </td> <td> 2.967 </td> <td> 2 </td> <td> 1 </td></tr>
+                  <tr> <td> 13 <span class="label label-danger">-1</span></td> <td> Raków Częstochowa </td> <td> 3.511 </td> <td> 3 </td> <td> 3.505 </td> <td> 4.249 </td> <td> 2 </td> <td> 3 </td></tr>
+                  <tr> <td> 14 <span class="label label-danger">-12</span></td> <td> Pogoń Szczecin </td> <td> 3.199 </td> <td> 7 </td> <td> 3.045 </td> <td> 4.153 </td> <td> 4 </td> <td> 1 </td></tr>
+                  <tr> <td> 15 <span class="label label-warning">-</span></td> <td> Wisła Płock </td> <td> 3.113 </td> <td> 1 </td> <td> 3.651 </td> <td> 4.832 </td> <td> 1 </td> <td> 6 </td></tr>
+                  <tr> <td> 16 <span class="label label-danger">-3</span></td> <td> KGHM Zagłębie Lubin </td> <td> 2.805 </td> <td> 2 </td> <td> 3.662 </td> <td> 5.328 </td> <td> 3 </td> <td> 4 </td></tr>
+                
+                </tbody>
+                </table>
+                
+
+<br><br>
+
+
+
+<center><img src="tw.png" width="50px" height="50px"></img></center>
+<hr>
+</article>
+</div>
+<div class="fb-comments" data-href="https://michocio.github.io/" data-numposts="5" style="display: table;
+  margin: 0 auto;"></div>
+</div>
+</body>
+
+
+
